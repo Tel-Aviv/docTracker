@@ -1,0 +1,80 @@
+/* ::::::::::::::::::::::
+	accessibility
+::::::::::::::::::::::: */
+button:focus,
+button:active,
+a:focus,
+a:active,
+input[type=text]:focus,
+input[type=text]:active,
+input[type=button]:focus,
+input[type=button]:active,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active{
+
+}
+
+a:hover, a:focus, a:active{text-decoration:underline;}
+a:focus img , a:active img, img:focus, img:active, UL LI IMG:focus, UL LI IMG:active{outline:1px dotted #0099F0!important}
+
+.offset, span.offset {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+
+
+.accessibility{
+    position: absolute;
+    left: -99999px;
+    height: 10px;
+    width: 10px
+}
+
+#skip{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    list-style: outside none;
+}
+
+#skip li{ list-style-type: none }
+
+#skip a{
+    position: absolute;
+    left: -99999px;
+    top: 30px;
+}
+
+#skip a:focus, #skip a:active{
+    position: relative;
+    left: 0;
+   top:0;
+    z-index:99999;
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    padding: 32px 64px 24px 28px;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0;
+    font-size:23px;
+    font-weight: bold;
+    /* color information, edit this to suit the colors of your layout */
+    line-height: 78px;
+    color: #2e2e2e;
+    background:#ffcd32 url(../img/icon-ee.png) no-repeat 85% center;
+    background-size: 27px 17px;
+    -moz-box-shadow:    1px 1px 1px 1px #2e2e2e;
+    -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+    box-shadow:         1px 1px 1px 1px #ccc;
+}

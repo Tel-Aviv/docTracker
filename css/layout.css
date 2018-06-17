@@ -1,0 +1,53 @@
+
+#planAndDev { background-color: #ffffff;padding-top:120px; padding-bottom:30px;}
+#planAndDev.imgHeader{ background-image:none;}
+
+#planAndDev .bContainer{}
+ 
+#planAndDev .rContainer{display: none;}
+
+#planAndDev .lContainer{}
+
+@media (min-width: 768px) {
+	#planAndDev {padding-top:230px; margin-top:0;}
+	#planAndDev.imgHeader{ background-image:url(../img/innerPageHeaderImg.jpg); background-position:left top; background-size:auto 330px; background-repeat: repeat-x;}
+	#planAndDev .bContainer{width: 700px; background-color:#ffffff;}
+	
+	#planAndDev .navHeader { margin:30px 30px 0; width:auto;}
+	#planAndDev .navHeader .col-md-12{ margin:0; padding:0;}
+
+	#planAndDev .lContainer{ width: 650px; margin:0 auto; padding:0;}
+}
+
+@media (min-width:992px) {
+	#planAndDev {padding-top:315px; margin-top:30px;}
+	#planAndDev.imgHeader{ background-size:auto 457px;}
+	#planAndDev .bContainer{width: 960px; }
+	
+	#planAndDev .navHeader { margin:20px 30px 30px; width:auto;}
+	
+	#planAndDev .rContainer{width: 204px; float: right; display:block; margin-right:30px;}
+	#planAndDev .lContainer{ float: left; width: 650px; margin-left: 30px;}
+}
+
+@media (min-width: 1200px) {
+	#planAndDev { padding-top:360px; margin-top:0px;}
+	#planAndDev.imgHeader{background-size:auto 525px;}
+	#planAndDev .bContainer{width: 1198px;}
+	
+	#planAndDev .navHeader { margin:34px 40px 28px;}
+	
+	#planAndDev .rContainer{width: 244px; margin-right:40px;}
+	#planAndDev .lContainer{ float: left; width: 798px; margin-left: 36px; }
+}
+
+@media (min-width: 1919px) {
+	#planAndDev { padding-top:430px; margin-top:20px;}
+	#planAndDev.imgHeader{background-size:auto 600px;}
+	#planAndDev .bContainer{width: 1600px;}
+	
+	#planAndDev .navHeader { margin:34px 80px 28px 30px;}
+	
+	#planAndDev .rContainer{margin-right:80px;}
+	#planAndDev .lContainer{ margin-left: 135px; }
+}

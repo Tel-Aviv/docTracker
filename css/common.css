@@ -1,0 +1,145 @@
+/* start reset*/
+body { font-size: 1em;line-height: 1.4;font-family: Arial, sans-serif;}
+::-moz-selection {background: #b3d4fc; text-shadow: none;}
+::selection { background: #b3d4fc;text-shadow: none;}
+fieldset { border: 0; margin: 0; padding: 0;}
+textarea { resize: vertical;}
+.chromeframe {margin: 0.2em 0; background: #ccc; color: #000; padding: 0.2em 0;}
+button { -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; -o-transition: all 0.4s ease-out; transition: all 0.4s ease-out;}
+h1, h2, h3, h4, h5, h6 {margin-top: 0;margin-bottom: 0;}
+select { font-size:16px!important;}
+A, A:hover, A:focus { text-decoration:none;}
+textarea, input {-webkit-appearance: none;}
+.bootstrap-select .btn:focus,	.form-control:focus,	textarea:focus,	input:focus,	input[type]:focus,	.uneditable-input:focus {-webkit-box-shadow: none;box-shadow: none;		outline: none !important;outline-offset: 0;	}
+*:focus,*:hover {	outline: none !important;}
+textarea {	resize: none;}
+.container, .container-fluid {	padding-left: 0;	padding-right: 0;}
+
+/**font**/
+@font-face{
+ font-family: 'blenderLight';
+    src: url('Fonts/blender.light.eot');
+    src: url('Fonts/blender.light.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/blender.light.woff') format('woff'),
+         url('Fonts/blender.light.svgz#BlenderLight') format('svg'),
+         url('Fonts/blender.light.svg#BlenderLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+ font-family: 'blenderRegular';
+    src: url('Fonts/blender.regular.eot');
+    src: url('Fonts/blender.regular.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/blender.regular.woff') format('woff'),
+         url('Fonts/blender.regular.svgz#BlenderRegular') format('svg'),
+         url('Fonts/blender.regular.svg#BlenderRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+font-family: 'blenderBlack';
+    src: url('Fonts/blender.black.eot');
+    src: url('Fonts/blender.black.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/blender.black.woff') format('woff'),
+         url('Fonts/blender.black.svgz#BlenderRegular') format('svg'),
+         url('Fonts/blender.black.svg#BlenderRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+ font-family: 'BlenderBold';
+    src: url('Fonts/blender.bold.eot');
+    src: url('Fonts/blender.bold.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/blender.bold.woff') format('woff'),
+         url('Fonts/blender.bold.svgz#BlenderBold') format('svg'),
+         url('Fonts/blender.bold.svg#BlenderBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'Simple-Line-Icons';
+	src:url('Fonts/Simple-Line-Icons.eot');
+	src:url('Fonts/Simple-Line-Icons.eot?#iefix') format('embedded-opentype'),
+		url('Fonts/Simple-Line-Icons.woff') format('woff'),
+		url('Fonts/Simple-Line-Icons.ttf') format('truetype'),
+		url('Fonts/Simple-Line-Icons.svg#Simple-Line-Icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+  font-family: "tlv";
+  src:url("Fonts/tlv.eot");
+  src:url("Fonts/tlv.eot?#iefix") format("embedded-opentype"),
+    url("Fonts/tlv.woff") format("woff"),
+    url("Fonts/tlv.ttf") format("truetype"),
+    url("Fonts/tlv.svg#tlv") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-plane:before { content: "\e012";font-family: 'Simple-Line-Icons';}
+.icon-umbrella:before { content: "\e053"; font-family: 'Simple-Line-Icons';}
+.icon-graduation:before {content: "\e019";font-family: 'Simple-Line-Icons';}
+.icon-gift:before {content: "\e02f";font-family: 'Simple-Line-Icons';}
+.icon-pin:before { content: "l"; font-family: 'tlv'}
+.icon-search:before {content: "g"; font-family: 'tlv'}
+.icon-facebook-1:before {content: "k"; font-family: 'tlv'}
+.icon-print:before {content: "m"; font-family: 'tlv'}
+.icon-share:before {content: "n"; font-family: 'tlv'}
+.icon-email:before {content: "j"; font-family: 'tlv'}
+.icon-plus:before {content: "v"; font-family: 'tlv'}
+.icon-x:before {content: "w"; font-family: 'tlv'}
+.icon-up:before {content: "2"; font-family: 'tlv'}
+.icon-down:before {content: "3"; font-family: 'tlv'}
+
+/**rtl**/
+.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {float: right;}
+@media (min-width: 768px) {
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {float: right;}
+}
+@media (min-width: 992px) {
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {float:right;}
+.col-md-push-4 { right: 33.33333333%; left:auto; }
+.col-md-pull-8 { left: 66.66666667%; right:auto; }
+.col-md-offset-3 { margin-right: 25%; margin-left:0 }
+.col-md-offset-2 { margin-right:16.6667%; margin-left:0 }
+.col-md-offset-1 {margin-right: 8.33333333%; margin-left:0 }
+}
+@media (min-width: 1200px) {
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 { float:right;}
+.col-lg-offset-2 {margin-right: 16.66666667%;  margin-left:0 }
+
+}
+.container { direction:rtl;}
+@media (min-width: 1919px) {
+	.container { width:1473px; max-width:1473px}
+}
+.container { margin:0 auto;}
+html{ overflow: auto;}
+body { font-family:'blenderRegular', Arial, sans-serif;}
+
+
+
+/*-- red--*/
+#planAndDev .red #event_scroller div.item div.event_day:hover,
+#planAndDev .red #event_scroller div.item div.event_day:focus{-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; cursor:pointer; top:-1px}
+#planAndDev .red #event_scroller div.item div.event_day:hover{background:#F0F2F5; border:1px #ef4230 solid; }
+#planAndDev .red #event_scroller div.item div.event_day.active_day{-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:#ef4230; color:#ffffff; top:-1px; border:0}
+#planAndDev .red #event_scroller div.item div.event_day.active_day:hover{border:0}
+#planAndDev .red #map_area div.map_menu{background:#ef4230;}
+/*-- red--*/
+
+/*-- blue--*/
+#planAndDev .blue #event_scroller div.item div.event_day:hover,
+#planAndDev .blue #event_scroller div.item div.event_day:focus{-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; cursor:pointer; top:-1px}
+#planAndDev .blue #event_scroller div.item div.event_day:hover{background:#F0F2F5; border:1px #0099F0 solid; }
+#planAndDev .blue #event_scroller div.item div.event_day.active_day{-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:#0099F0; color:#ffffff; top:-1px; border:0}
+#planAndDev .blue #event_scroller div.item div.event_day.active_day:hover{border:0}
+#planAndDev .blue #map_area div.map_menu{background:#0099f0;}
+/*-- blue--*/
