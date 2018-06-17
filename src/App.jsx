@@ -1,10 +1,15 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-class App extends React.Component {
+import Main from './Main';
 
-  render() {
-    return <div>Doc Tracker</div>
-  }
+const App = () => {
+
+    return (
+            <Switch>
+              <Route exact path='/:uid/:docid' component={Main} />
+            </Switch>
+          )
 
 };
 
