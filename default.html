@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html lang="he" xml:lang="he" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=9">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Documents Tracker</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+    <script src="bower_components/eventsource-polyfill/dist/eventsource.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+</head>
+<body class="landing">
+
+    <header id="header">
+        <h1>
+            <a href="https://www.tel-aviv.gov.il/Pages/HomePage.aspx" target="_blank"
+               style="font-size:0.7em; color: inherit;">עיריית ת"א</a>
+        </h1>
+    </header>
+
+    <section id="banner">
+        <h2>נוהל חדש</h2>
+        <p>נוהל חדש התפרסם לאחרונה בעיריית ת"א-יפו ומובא כאן לעיונך</p>
+        <p>תהליך עבודה עם הנוהל מורכב משלושה שלבים</p>
+        <p>להלן פירוט השלבים</p>
+        <!--<ul class="actions">
+            <li>
+                <a href="#" onclick="showFile()" class="button big">לצפיה בנוהל</a>
+            </li>
+        </ul>-->
+    </section>
+
+    <section id="one" class="wrapper style1 special">
+        <div class="container-fluid">
+            <!--<header class="major">
+                <h2>תהליך עבודה עם הנוהל מורכב משלושה שלבים</h2>
+                <p>להלן פירוט השלבים</p>
+            </header>-->
+            <div>
+                <div class="row-fluid">
+                    <div class="col-lg-4 col-md-12" style="display: inline-block;">
+                        <section class="box" onclick='showFile()'>
+                            <i class="icon big rounded color6 fa-file-text-o"></i>
+                            <h3 dir="rtl">1. צפייה בנוהל</h3>
+                        </section>
+                    </div>
+                    <div class="col-lg-4 col-md-12" style="display: inline-block;">
+                        <div id="btnAddComment">
+                            <section class="box">
+                                <i class="icon big rounded color9 fa-commenting-o"></i>
+                                <h3 dir="rtl">2. הוסף הערות ושאלות</h3>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12" style="display: inline-block;">
+                        <div id="btnApprove">
+                            <section class="box">
+                                <i class="icon big rounded color1 fa-check"></i>
+                                <h3>3. מאשר קריאה</h3>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="display:none;" id="commentsSection" class="wrapper style2 special">
+        <div class="container">
+            <header class="major">
+                <h2>אנשים שעובדים איתך</h2>
+                <p>כל אחד מהם כבר קרא ואישר את הנוהל </p>
+            </header>
+            <section class="profiles">
+                <div id="commentsContent"></div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="8u 12u$(medium)">
+                    <ul class="copyright">
+                        <li dir="ltr">Images: <a href="http://unsplash.com" target="_blank">Unsplash</a></li>
+                        <li dir="ltr">Design: Empire V.</li>
+                        <li dir="ltr">&copy; 2016 Tel-Aviv Municiplity. All rights reserved.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-database.js"></script>
+
+    <!-- ReactJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script>
+    <!--<script src="bower_components/react/react.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
+    <!--<script src="bower_components/react/react-dom.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <!-- React Bootstrap -->
+    <script src="bower_components/react-bootstrap/react-bootstrap.min.js"></script>
+
+    <!-- ReactFire -->
+    <!--<script src="https://cdn.firebase.com/libs/reactfire/0.1.6/reactfire.min.js"></script>-->
+    <script src="bower_components/reactfire/dist/reactfire.min.js"></script>
+
+    <script>
+
+        if (!(window.console && console.log)) {
+            console = {
+                log: function () { },
+                debug: function () { },
+                info: function () { },
+                warn: function () { },
+                error: function () { }
+            };
+        }
+
+        var Button = ReactBootstrap.Button;
+        var Modal = ReactBootstrap.Modal;
+        var FormControl = ReactBootstrap.FormControl;
+        var FormGroup = ReactBootstrap.FormGroup;
+        var ControlLabel = ReactBootstrap.ControlLabel;
+
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+        function findReader(elem) {
+            return elem.reader.id === userId;
+        }
+
+        var userId = GetURLParameter('uid');
+        var docId = GetURLParameter('docid');
+        console.log('passed docID: ' + docId);
+        console.log('passed userID: ' + userId);
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBpK5b4X9fYLaYQKK7ebgjQCQkDGW3uKok",
+            authDomain: "docktracker-8b6f9.firebaseapp.com",
+            databaseURL: "https://docktracker-8b6f9.firebaseio.com",
+        };
+
+        var firebaseApp = firebase.initializeApp(config);
+
+        //var database = firebaseApp.database();
+        //database.ref('approvals/-KVm0kC5ord-WrTjO1la/c3130')
+        //.once('value')
+        //.then(function (snapshot) {
+
+        //    var isApproved = ( snapshot.val() != null);
+        //    if (isApproved)
+        //        console.log('Approved');
+
+        //})
+        //.catch(function (error) {
+        //    console.error(error);
+        //})
+
+        function showFile() {
+
+            var database = firebaseApp.database();
+            database.ref('docs/' + docId)
+            .once('value')
+            .then(function (snapshot) {
+                var file = snapshot.val();
+
+                console.log('File URL: ' + file.url);
+                window.location = file.url;
+            })
+        }
+
+        function showComments() {
+            $('#commentsSection').show();
+        }
+
+
+
+    </script>
+
+    <!--<script src="app.jsx"></script>-->
+
+    <script type="text/babel" src="js/comments.jsx">
+    </script>
+    <script type="text/babel" src="js/approvebutton.jsx">
+    </script>
+    <script type="text/babel" src="js/addcomment.jsx">
+    </script>
+</body>
+
+</html>
