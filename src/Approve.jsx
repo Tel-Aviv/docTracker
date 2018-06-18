@@ -60,6 +60,10 @@ class Approve extends React.Component<State, Props> {
             const subKeys = Object.keys(val);
             const when = new Date( val[subKeys[0]].when );
             approvals.push(key);
+            // approvals.push({
+            //   user: key,
+            //   when: when
+            // })
           })
 
           self.setState({
@@ -129,36 +133,28 @@ class Approve extends React.Component<State, Props> {
       console.log(response);
 
     })
-
+    .catch( error => {
+      console.error(error);
+    })
 
   }
 
   render() {
 
-    if (this.state.isApproved) {
-        return (
-          <div className="col-lg-4 col-md-12" style={this.styles.cellStyle}>
-              <div id="btnApprove">
-                <section className="box">
-                    <i className="icon big rounded color1 fa-check"></i>
-                    <h3 style={this.styles.color6Font}>אושר</h3>
-                </section>
-            </div>
-            </div>
-            )
-    }  else
-        return (
-          <div className="col-lg-4 col-md-12" style={this.styles.cellStyle}>
-            <div id="btnApprove">
-              <section className="box" onClick={::this.handleClick}>
-                  <i className="icon big rounded color1 fa-check"></i>
-                  <h3>3. מאשר קריאה</h3>
-              </section>
-            </div>
-          </div>
-            )
+    const textStyle = this.state.isApproved ? this.styles.color6Font : null;
+    const text = this.state.isApproved ? "אושר" : "3. מאשר קריאה" ;
 
+    return (
+            <div className="col-lg-4 col-md-12" style={this.styles.cellStyle}>
+                <div id="btnApprove">
+                  <section className="box" onClick={::this.handleClick}>
+                      <i className="icon big rounded color1 fa-check"></i>
+                      <h3 style={textStyle}>{text}</h3>
+                  </section>
+              </div>
+            </div>
+          )
   }
 };
 
-export  default Approve;
+export default Approve;
