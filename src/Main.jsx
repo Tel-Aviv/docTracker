@@ -9,8 +9,8 @@ import Approve from './Approve';
 class Main extends React.Component {
 
   state = {
-    docId: '',
-    userId: ''
+    docId: undefined,
+    userId: undefined
   }
 
   constructor(props) {
@@ -40,6 +40,7 @@ class Main extends React.Component {
   }
 
   render() {
+
     return (<React.Fragment>
               <header id="header">
                 <h1>
@@ -59,8 +60,8 @@ class Main extends React.Component {
                   <div>
                       <div className="row-fluid">
                           <ReviewDoc docId={this.state.docId} />
-                          <Comments />
-                          <Approve docId={this.state.docId} userId={this.state.userId}/>
+                          <Comments docId={this.state.docId} userId={this.state.userId} />
+                          <Approve docId={this.state.docId} userId={this.state.userId} />
                       </div>
                   </div>
                 </div>

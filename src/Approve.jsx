@@ -32,24 +32,28 @@ class Approve extends React.Component<State, Props> {
 
   }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
 
     const self = this;
 
-    var database = firebase.database();
+    if( this.props.docId && this.props.userId ) {
 
-    database.ref('approvals/' + this.props.docId + '/' + this.props.userId)
-    .once('value')
-    .then(function (snapshot) {
+      var database = firebase.database();
 
-      console.log('isApproved: ' + snapshot.val());
+      database.ref('approvals/' + this.props.docId + '/' + this.props.userId)
+      .once('value')
+      .then(function (snapshot) {
 
-      self.setState({
-          isApproved: (snapshot.val() != null),
-          dataRetrieved: true
+        console.log('isApproved: ' + snapshot.val());
+
+        self.setState({
+            isApproved: (snapshot.val() != null),
+            dataRetrieved: true
+        });
+
       });
 
-    });
+      }
 
   }
 
@@ -58,7 +62,7 @@ class Approve extends React.Component<State, Props> {
     firebase.database()
     .ref('approvals/' + this.props.docId + '/' + this.props.userId)
     .push({
-        when: firebase.database.ServerValue.TIMESTAMP
+        when: new Date().getTime()
     });
 
     this.setState({
