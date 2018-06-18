@@ -3,7 +3,10 @@ import React from 'react';
 import firebase from './firebase.js';
 
 type State = {
-  isApproved: boolean
+  isApproved: boolean,
+  docRowId: String,
+  dataRetrieved: boolean,
+  arrovals: []
 }
 
 type Props = {
@@ -14,7 +17,10 @@ type Props = {
 class Approve extends React.Component<State, Props> {
 
   state = {
-    isApproved: false
+    isApproved: false,
+    docRowId: '',
+    dataRetrieved: false,
+    arrovals: []
   }
 
   constructor(props) {
@@ -38,20 +44,59 @@ class Approve extends React.Component<State, Props> {
 
     if( this.props.docId && this.props.userId ) {
 
-      var database = firebase.database();
+      if( !this.state.dataRetrieved ) {
 
-      database.ref('approvals/' + this.props.docId + '/' + this.props.userId)
-      .once('value')
-      .then(function (snapshot) {
+        var database = firebase.database();
 
-        console.log('isApproved: ' + snapshot.val());
+        database.ref('approvals/' + this.props.docId)
+        .once('value')
+        .then( snapshot => {
 
-        self.setState({
-            isApproved: (snapshot.val() != null),
-            dataRetrieved: true
+          const approvals = [];
+
+          snapshot.forEach( item => {
+            const key = item.key;
+            const val = item.val();
+            const subKeys = Object.keys(val);
+            const when = new Date( val[subKeys[0]].when );
+            approvals.push(key);
+          })
+
+          self.setState({
+            arrovals: approvals
+          });
+
         });
 
-      });
+        database.ref('approvals/' + this.props.docId + '/' + this.props.userId)
+        .once('value')
+        .then( snapshot => {
+
+          console.log('isApproved: ' + snapshot.val());
+
+          self.setState({
+              isApproved: (snapshot.val() != null),
+              dataRetrieved: true
+          });
+
+        });
+
+        database.ref('docs/' + this.props.docId)
+        .once('value')
+        .then( snapshot => {
+
+          const val = snapshot.val();
+
+          if( val ) {
+            self.setState({
+              docRowId: val.rowID,
+            })
+          }
+
+        })
+      }
+
+
 
       }
 
@@ -69,6 +114,22 @@ class Approve extends React.Component<State, Props> {
         isApproved: true,
         dataRetrieved: true
     });
+
+    // Add current users to approvals list
+    this.state.arrovals.push(this.props.userId);
+    const users = this.state.arrovals.join();
+
+    fetch('http://m2039296-w7/DocsTracker/DocsTrackerService.svc/webhttp/'
+        + 'approve?users=' + users  + '&docRowId=' + this.state.docRowId,
+      {
+        credentials: 'include'
+      })
+    .then(response => {
+
+      console.log(response);
+
+    })
+
 
   }
 
