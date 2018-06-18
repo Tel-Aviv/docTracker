@@ -7,6 +7,11 @@ import Approve from './Approve';
 
 class Main extends React.Component {
 
+  state = {
+    docId: '',
+    userId: ''
+  }
+
   constructor(props) {
     super(props);
 
@@ -17,24 +22,20 @@ class Main extends React.Component {
       },
       commentsSectionStyle: {
         display: "none"
-      },
-      cellStyle: {
-        display: "inline-block"
       }
     }
+
   }
 
   componentDidMount() {
     console.log(this.props.match.params.docid);
     const docId = this.props.match.params.docid;
+    const userId = this.props.match.params.uid;
 
-    var database = firebase.database();
-    database.ref('docs/' + docId)
-    .once('value')
-    .then(function (snapshot) {
-      var file = snapshot.val();
-      console.log(file);
-    });
+    this.setState({
+      docId: docId,
+      userId: userId
+    })
   }
 
   render() {
@@ -56,9 +57,9 @@ class Main extends React.Component {
                 <div className="container-fluid">
                   <div>
                       <div className="row-fluid">
-                          <ReviewDoc />
+                          <ReviewDoc docId={this.state.docId} />
                           <Comments />
-                          <Approve />
+                          <Approve docId={this.state.docId} userId={this.state.userId}/>
                       </div>
                   </div>
                 </div>
