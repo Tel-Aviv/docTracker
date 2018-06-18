@@ -1,7 +1,17 @@
+// @flow
 import React from 'react';
 import firebase from './firebase.js';
 
-class Approve extends React.Component {
+type State = {
+  isApproved: boolean
+}
+
+type Props = {
+  docId: String,
+  userId: String
+}
+
+class Approve extends React.Component<State, Props> {
 
   state = {
     isApproved: false
