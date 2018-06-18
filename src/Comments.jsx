@@ -2,9 +2,11 @@
 import React from 'react';
 import firebase from './firebase.js';
 import Modal from 'react-modal';
+
 import Button from 'react-bootstrap/lib/Button';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 const customStyles = {
   content : {
@@ -95,12 +97,16 @@ class Comments extends React.Component<State, Props> {
                  ariaHideApp={false}
                  currentEventIndex = {1}
                  contentLabel="Comments">
-                 <FormControl type='text'
-                         componentClass="textarea"
-                         placeholder="הקלד..."
-                         value={this.state.comment}
-                         onChange={::this.handleChange}>
-                 </FormControl>
+                 <FormGroup
+                         controlId="commentText">
+                   <ControlLabel>כתבו את הערותיכם</ControlLabel>
+                   <FormControl type='text'
+                           componentClass="textarea"
+                           placeholder="הקלד..."
+                           value={this.state.comment}
+                           onChange={::this.handleChange}>
+                   </FormControl>
+                 </FormGroup>
                  <br />
                  <Button onClick={::this.postComment}>שמור</Button>
 
